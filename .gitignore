@@ -16,3 +16,5 @@ yarn-error.log
 xdebug.log
 .DS_Store
 /public/assets/video
+.phpstorm.meta.php
+_ide_helper.php

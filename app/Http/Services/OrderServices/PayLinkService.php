@@ -13,14 +13,12 @@ class PayLinkService
         $email = $request->input('email');
 
         $shopId = env('SHOP_ID');
-        //$pwd1 = env('SHOP_PWD_1');
-        $pwd1 = env('SHOP_TEST_PWD_1');
+        $pwd1 = env('SHOP_PWD_1');
+        //$pwd1 = env('SHOP_TEST_PWD_1');
 
         // номер заказа
         $invoiceId = random_int(12345, 54321);
 
-        $in_curr = "";
-        $shp_item = 1;
 
         // описание заказа
         $description = $request->input('description');
@@ -28,7 +26,6 @@ class PayLinkService
 
         //сумма
         $amount = $request->input('price');
-        $amount = 1;
 
         //язык
         $culture = "ru";
