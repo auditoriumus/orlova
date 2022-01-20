@@ -19,7 +19,6 @@ class PayLinkService
         // номер заказа
         $invoiceId = random_int(12345, 54321);
 
-
         // описание заказа
         $description = $request->input('description');
         $description .= '. Заказ №' . $invoiceId;
@@ -39,7 +38,7 @@ class PayLinkService
 
         $result['invoice_id'] = $invoiceId;
         $result['url'] = "https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=$shopId&OutSum=$amount&InvId=$invoiceId" .
-            "&Description=$description&Email=$email&SignatureValue=$crc&Culture=$culture&Encoding=$encoding&isTest=1";
+            "&Description=$description&Email=$email&SignatureValue=$crc&Culture=$culture&Encoding=$encoding";
 
         return $result;
     }
