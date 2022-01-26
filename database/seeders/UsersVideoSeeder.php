@@ -89,13 +89,6 @@ class UsersVideoSeeder extends Seeder
                     'video_id' => 1,
                 ];
             }
-//            if (in_array($row[2], $this->whosAngry)) {
-//                $data[] = [
-//                    'uuid' => Uuid::uuid(),
-//                    'user_id' => $i,
-//                    'video_id' => 1,
-//                ];
-//            }
             if ($row[2] == 'um_2005@mail.ru' || $row[2] == 'S9817179847@gmail.com' || $row[2] == 'Integrapsi10@gmail.com') {
                 $data[] = [
                     'uuid' => Uuid::uuid(),

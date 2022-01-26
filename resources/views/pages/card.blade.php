@@ -31,10 +31,14 @@
                             @if(isset($videos))
                                 @foreach($videos as $video)
                                     <div class="about_us_video">
-                                        <iframe width="754" height="480" src="{{$video->source}}"
-                                                title="YouTube video player" frameborder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowfullscreen></iframe>
+{{--                                        <iframe width="754" height="480" src="{{$video->source}}"--}}
+{{--                                                title="YouTube video player" frameborder="0"--}}
+{{--                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"--}}
+{{--                                                allowfullscreen></iframe>--}}
+                                        <video width="800" height="480" controls>
+                                            <source src="{{$video->source}}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
                                     </div>
                                 @endforeach
                             @endif

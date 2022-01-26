@@ -19,8 +19,8 @@
             </div>
         </div>
         <div class="banner_img">
-            <img src="{{asset('assets/img/banner.png')}}" alt="#" class="img-fluid">
-            <img src="{{asset('assets/img/banner_pattern.png')}} " alt="#" class="pattern_img img-fluid">
+            <img src="{{asset('assets/img/banner.png')}}" alt="banner" class="img-fluid">
+            <img src="{{asset('assets/img/banner_pattern.png')}} " alt="banner" class="pattern_img img-fluid">
         </div>
     </section>
     <!-- banner part start-->
@@ -36,7 +36,7 @@
                                 <div class="row align-items-center justify-content-between @if($i%2==0) reverse @endif">
                                     <div class="col-lg-6 col-sm-6">
                                         <div class="single_product_img">
-                                            <img src="{{asset($courses[$i]->img)}}" class="img-fluid"
+                                            <img src="{{asset($courses[$i]['img'])}}" class="img-fluid"
                                                  alt="#">
                                             <img src="{{asset('assets/img/product_overlay.png')}}" alt="#"
                                                  class="product_overlay img-fluid">
@@ -44,11 +44,11 @@
                                     </div>
                                     <div class="col-lg-5 col-sm-6">
                                         <div class="single_product_content">
-                                            <h5>{{$courses[$i]->type}}</h5>
+                                            <h5>{{$courses[$i]['type']}}</h5>
                                             <h2>
-                                                <a href="{{route('courses.show',$courses[$i]->uuid)}}">{{$courses[$i]->title}}</a>
+                                                <a href="{{route('courses.show',$courses[$i]['uuid'])}}">{{$courses[$i]['title']}}</a>
                                             </h2>
-                                            <a href="{{route('courses.show',$courses[$i]->uuid)}}"
+                                            <a href="{{route('courses.show',$courses[$i]['uuid'])}}"
                                                class="btn_3">Смотреть</a>
                                         </div>
                                     </div>

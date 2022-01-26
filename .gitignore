@@ -18,3 +18,4 @@ xdebug.log
 /public/assets/video
 .phpstorm.meta.php
 _ide_helper.php
+*.mp4

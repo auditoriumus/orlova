@@ -14,9 +14,9 @@ class WelcomeController extends Controller
     public function __invoke()
     {
         $comments = app(GetCommentService::class)->getAll();
-        $courses = app(GetCourseService::class)->getAll();
+        $courses = app(GetCourseService::class)->getAll()->toArray();
         View::share([
-            'courses' => $courses,
+            'courses' => array_reverse($courses),
             'comments' => $comments
         ]);
         return view('welcome');
