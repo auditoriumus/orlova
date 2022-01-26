@@ -37,6 +37,21 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $uuid
+ * @property string $phone
+ * @property bool $privacy_policy
+ * @property bool $public_offer
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UsersCourse[] $usersCourses
+ * @property-read int|null $users_courses_count
+ * @method static \Illuminate\Database\Query\Builder|User onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePrivacyPolicy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePublicOffer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereUuid($value)
+ * @method static \Illuminate\Database\Query\Builder|User withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|User withoutTrashed()
  */
 class User extends Authenticatable
 {
@@ -61,8 +76,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function usersVideos()
+    public function usersCourses()
     {
-        return $this->hasMany(UsersVideo::class);
+        return $this->hasMany(UsersCourse::class);
     }
 }

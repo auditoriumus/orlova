@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\UsersCoursesServices\CreateUsersCoursesService;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Faker\Provider\Uuid;
@@ -43,6 +44,8 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        app(CreateUsersCoursesService::class)->addNew($user->id, 1);
 
         return redirect(RouteServiceProvider::HOME);
     }

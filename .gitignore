@@ -16,6 +16,6 @@ yarn-error.log
 xdebug.log
 .DS_Store
 /public/assets/video
+*.mp4
 .phpstorm.meta.php
 _ide_helper.php
-*.mp4

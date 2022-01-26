@@ -24,7 +24,8 @@ Route::get('/contact', function () {
     return view('pages.contact');
 })->name('contact');
 
-Route::resource('courses', \App\Http\Controllers\CourseController::class)->names('courses');
+Route::resource('courses', \App\Http\Controllers\CourseController::class)->names('courses')
+->only(['show']);
 
 Route::post('/subscribe', [\App\Http\Controllers\SubscribeController::class, 'subscribe'])->name('subscribe');
 

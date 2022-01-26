@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersVideosTable extends Migration
+class CreateUsersCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateUsersVideosTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_videos', function (Blueprint $table) {
+        Schema::create('users_courses', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('video_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id');
+            $table->foreignId('course_id');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreateUsersVideosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_videos');
+        Schema::dropIfExists('users_courses');
     }
 }

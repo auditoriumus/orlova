@@ -35,10 +35,12 @@ class PayLinkService
         //подпись
         $crc = md5("$shopId:$amount:$invoiceId:$pwd1");
 
+        $isTest = 0;
+
 
         $result['invoice_id'] = $invoiceId;
         $result['url'] = "https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=$shopId&OutSum=$amount&InvId=$invoiceId" .
-            "&Description=$description&Email=$email&SignatureValue=$crc&Culture=$culture&Encoding=$encoding";
+            "&Description=$description&Email=$email&SignatureValue=$crc&Culture=$culture&Encoding=$encoding&isTest=$isTest";
 
         return $result;
     }

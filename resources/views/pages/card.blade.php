@@ -31,14 +31,17 @@
                             @if(isset($videos))
                                 @foreach($videos as $video)
                                     <div class="about_us_video">
-{{--                                        <iframe width="754" height="480" src="{{$video->source}}"--}}
-{{--                                                title="YouTube video player" frameborder="0"--}}
-{{--                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"--}}
-{{--                                                allowfullscreen></iframe>--}}
-                                        <video width="800" height="480" controls>
-                                            <source src="{{$video->source}}" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
+                                        @if(preg_match('#youtube#', $video->source))
+                                            <iframe width="754" height="480" src="{{$video->source}}"
+                                                    title="YouTube video player" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowfullscreen></iframe>
+                                        @else
+                                            <video width="800" height="480" controls>
+                                                <source src="{{$video->source}}" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        @endif
                                     </div>
                                 @endforeach
                             @endif
@@ -55,14 +58,15 @@
                                            value="Оплата за практику: {{$course->title}}">
                                     <div class="mt-10">
                                         <input type="text" name="email" placeholder="Email*" required
-                                               class="single-input">
+                                               class="single-input" @if(Auth::check()) value="{{\Illuminate\Support\Facades\Auth::user()->email}}" @endif>
                                     </div>
                                     <div class="mt-10">
                                         <input type="text" name="phone" placeholder="Телефон*" required
-                                               class="single-input">
+                                               class="single-input" @if(Auth::check()) value="{{\Illuminate\Support\Facades\Auth::user()->phone}}" @endif>
                                     </div>
                                     <div class="mt-10">
-                                        <input type="text" name="name" placeholder="Имя" required class="single-input">
+                                        <input type="text" name="name" placeholder="Имя" required class="single-input"
+                                               @if(Auth::check()) value="{{\Illuminate\Support\Facades\Auth::user()->name}}" @endif >
                                     </div>
                                     <div class="mt-10 left">
                                         <input type="checkbox" id="public_offer" name="public_offer" required>

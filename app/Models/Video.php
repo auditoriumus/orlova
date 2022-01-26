@@ -32,6 +32,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|Video withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Video withoutTrashed()
  * @mixin \Eloquent
+ * @property-read \App\Models\Course|null $course
  */
 class Video extends Model
 {
@@ -39,10 +40,6 @@ class Video extends Model
 
     protected $table = 'videos';
 
-    public function usersVideos()
-    {
-        return $this->hasMany(UsersVideo::class);
-    }
 
     public function course()
     {

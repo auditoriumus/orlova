@@ -8,11 +8,13 @@ use App\Http\Services\OrderServices\PayLinkService;
 use App\Http\Services\UserServices\CreateUserService;
 use App\Http\Services\UserServices\GetUserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
     public function paymentGenerate(Request $request)
     {
+        $validator = $request->validate(['email' => 'email']);
         $email = $request->input('email');
         $user = app(GetUserService::class)->isUserExistsByEmail($email);
 

@@ -32,6 +32,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|Course withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Course withoutTrashed()
  * @mixin \Eloquent
+ * @property string $type
+ * @property string $img
+ * @property string $detail_img
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UsersCourse[] $usersCourses
+ * @property-read int|null $users_courses_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Video[] $videos
+ * @property-read int|null $videos_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Course whereDetailImg($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Course whereImg($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Course whereType($value)
  */
 class Course extends Model
 {
@@ -46,6 +56,11 @@ class Course extends Model
     public function videos()
     {
         return $this->hasMany(Video::class);
+    }
+
+    public function usersCourses()
+    {
+        return $this->hasMany(UsersCourse::class);
     }
 
 }

@@ -6,7 +6,7 @@ use Faker\Provider\Uuid;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class UsersVideoSeeder extends Seeder
+class UsersCourseSeeder extends Seeder
 {
     private $whosAngry = [
         'negorovadid@mail.ru',
@@ -67,7 +67,8 @@ class UsersVideoSeeder extends Seeder
         'madina.shamgunova@gmail.com',
         'natbaskaeva@mail.ru',
         'Valeri-3007@yandex.ru',
-        'Anastasia.mamonova@yahoo.fr'
+        'Anastasia.mamonova@yahoo.fr',
+        'um_2005@mail.ru'
     ];
 
     public function run()
@@ -80,31 +81,26 @@ class UsersVideoSeeder extends Seeder
             $data[] = [
                 'uuid' => Uuid::uuid(),
                 'user_id' => $i,
-                'video_id' => 2,
+                'course_id' => 1,
             ];
             if (in_array($row[2], $this->iAllow)) {
                 $data[] = [
                     'uuid' => Uuid::uuid(),
                     'user_id' => $i,
-                    'video_id' => 1,
+                    'course_id' => 2,
                 ];
             }
             if ($row[2] == 'um_2005@mail.ru' || $row[2] == 'S9817179847@gmail.com' || $row[2] == 'Integrapsi10@gmail.com') {
                 $data[] = [
                     'uuid' => Uuid::uuid(),
                     'user_id' => $i,
-                    'video_id' => 2,
-                ];
-                $data[] = [
-                    'uuid' => Uuid::uuid(),
-                    'user_id' => $i,
-                    'video_id' => 1,
+                    'course_id' => 3,
                 ];
             }
 
             $i++;
         }
 
-        DB::table('users_videos')->insert($data);
+        DB::table('users_courses')->insert($data);
     }
 }

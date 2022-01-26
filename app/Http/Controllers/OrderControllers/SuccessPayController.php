@@ -4,10 +4,7 @@ namespace App\Http\Controllers\OrderControllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Services\OrderServices\ApproveOrderService;
-use App\Http\Services\UserServices\GetUserService;
-use App\Http\Services\UserServices\UserService;
-use App\Http\Services\UsersVideosServices\AddUserVideosService;
-use App\Http\Services\UsersVideosServices\UsersVideosService;
+use App\Http\Services\UsersCoursesServices\CreateUsersCoursesService;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +18,7 @@ class SuccessPayController extends Controller
         $amount = $request->input('OutSum');
         $isPayedInfo = app(ApproveOrderService::class)->approve($invoiceId, $amount);
         if ($isPayedInfo) {
-            app(AddUserVideosService::class)->addNewByCourseUuid($isPayedInfo['user_id'], $isPayedInfo['course_id']);
+            app(CreateUsersCoursesService::class)->addNew($isPayedInfo['user_id'], $isPayedInfo['course_id']);
         }
         View::share([
             'message' => 'Поздравляю! Вам доступен просмотр практики!'

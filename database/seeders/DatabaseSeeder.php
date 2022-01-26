@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(CourseSeeder::class);
         $this->call(VideoSeeder::class);
-        $this->call(UsersVideoSeeder::class);
+        $this->call(UsersCourseSeeder::class);
         $this->call(CommentSeeder::class);
     }
 }

@@ -19,14 +19,14 @@ class VideoSeeder extends Seeder
                 'source' => 'https://www.youtube.com/embed/Pvd5bCtmSMU'
             ],
             [
-                //я разрешаю себе удовольствие
+                //Практика красивых женщин
                 'uuid' => 'c5bd1e1e-58e9-32e1-9b4a-7e6c9568476f',
                 'number' => 1,
                 'course_id' => 3,
                 'source' => '/assets/img/courses/3-praktika-krasivyh-zhenshchin/video/praktika-krasivyh-zhenshchin.mp4'
             ],
             [
-                //практика красивых женщин
+                //я разрешаю себе удовольствие
                 'uuid' => 'e4008fcd-0dba-3f6b-8327-cf790e24ddba',
                 'number' => 1,
                 'course_id' => 2,
