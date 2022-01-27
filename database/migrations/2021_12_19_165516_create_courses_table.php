@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('type');
             $table->string('img');
             $table->string('detail_img');
+            $table->jsonb('options')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

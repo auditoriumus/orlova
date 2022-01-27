@@ -82,12 +82,14 @@ class UsersCourseSeeder extends Seeder
                 'uuid' => Uuid::uuid(),
                 'user_id' => $i,
                 'course_id' => 1,
+                'created_at' => now()
             ];
             if (in_array($row[2], $this->iAllow)) {
                 $data[] = [
                     'uuid' => Uuid::uuid(),
                     'user_id' => $i,
                     'course_id' => 2,
+                    'created_at' => now()
                 ];
             }
             if ($row[2] == 'um_2005@mail.ru' || $row[2] == 'S9817179847@gmail.com' || $row[2] == 'Integrapsi10@gmail.com') {
@@ -95,8 +97,18 @@ class UsersCourseSeeder extends Seeder
                     'uuid' => Uuid::uuid(),
                     'user_id' => $i,
                     'course_id' => 3,
+                    'created_at' => now()
                 ];
             }
+            if ($row[2] == 'um_2005@mail.ru') {
+                $data[] = [
+                    'uuid' => Uuid::uuid(),
+                    'user_id' => $i,
+                    'course_id' => 4,
+                    'created_at' => now()
+                ];
+            }
+
 
             $i++;
         }

@@ -12,8 +12,10 @@ class CreateVideosTable extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
+            $table->text('description')->nullable();
             $table->tinyInteger('number');
             $table->foreignId('course_id')->nullable()->constrained();
+            $table->tinyInteger('part')->default(1);
             $table->string('source');
             $table->softDeletes();
             $table->timestamps();

@@ -10,8 +10,7 @@ class GetUsersCoursesService extends UsersCoursesService
 {
     public function isAvailable(int $userId, int $courseId)
     {
-        if ($this->repository->isAvailable($userId, $courseId)) return true;
-        return false;
+        return $this->repository->isAvailable($userId, $courseId) ?? false;
     }
 
     public function getCourseByUserUuid(string $userUuid)
