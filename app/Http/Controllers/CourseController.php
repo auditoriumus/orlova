@@ -9,6 +9,7 @@ use App\Http\Services\VideoServices\GetVideoService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
@@ -41,30 +42,33 @@ class CourseController extends Controller
                 View::share([
                     'available' => true
                 ]);
-            }
 
-            if (!empty($course)) {
-                $userBoughtCourse = Carbon::createFromTimeString($userCourse->created_at);
-                $now = Carbon::now();
-                $diffTime = $now->diffInDays($userBoughtCourse);
-                if($diffTime < 2) {
-                    $course->options = json_encode(['parts' => 1]);
-                } elseif ($diffTime >= 2 && $diffTime < 3){
-                    $course->options = json_encode(['parts' => 2]);
-                } elseif ($diffTime >= 3 && $diffTime < 4) {
-                    $course->options = json_encode(['parts' => 3]);
-                } elseif ($diffTime >= 4 && $diffTime < 5) {
-                    $course->options = json_encode(['parts' => 4]);
-                } elseif ($diffTime >= 5 && $diffTime < 6) {
-                    $course->options = json_encode(['parts' => 5]);
-                } elseif ($diffTime >= 6 && $diffTime < 7) {
-                    $course->options = json_encode(['parts' => 6]);
-                } elseif ($diffTime >= 7) {
-                    $course->options = json_encode(['parts' => 7]);
+                if ($course->title == 'Марафон про тело') {
+                    if (!empty($course)) {
+                        $userBoughtCourse = Carbon::createFromTimeString($userCourse->created_at);
+                        $now = Carbon::now();
+                        $diffTime = $now->diffInDays($userBoughtCourse);
+                        if($diffTime < 2) {
+                            $course->options = json_encode(['parts' => 1]);
+                        } elseif ($diffTime >= 2 && $diffTime < 3){
+                            $course->options = json_encode(['parts' => 2]);
+                        } elseif ($diffTime >= 3 && $diffTime < 4) {
+                            $course->options = json_encode(['parts' => 3]);
+                        } elseif ($diffTime >= 4 && $diffTime < 5) {
+                            $course->options = json_encode(['parts' => 4]);
+                        } elseif ($diffTime >= 5 && $diffTime < 6) {
+                            $course->options = json_encode(['parts' => 5]);
+                        } elseif ($diffTime >= 6 && $diffTime < 7) {
+                            $course->options = json_encode(['parts' => 6]);
+                        } elseif ($diffTime >= 7) {
+                            $course->options = json_encode(['parts' => 7]);
+                        }
+                    }
                 }
             }
         }
 
+        if (empty($course->id)) Log::error('Ошибка курса в CourseController '. $course->id);
         $videos = app(GetVideoService::class)->getByCourseId($course->id);
         if ($course) {
             View::share([
