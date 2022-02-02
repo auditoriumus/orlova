@@ -14,7 +14,6 @@ class WelcomeController extends Controller
 {
     public function __invoke()
     {
-        Log::error('Тест лог');
         $comments = app(GetCommentService::class)->getAll();
         $courses = app(GetCourseService::class)->getAll()->toArray();
         View::share([
