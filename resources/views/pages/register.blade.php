@@ -30,7 +30,7 @@
                                            placeholder="Имя" required>
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="phone" name="phone" value="{{old('phone')}}"
+                                    <input type="text" class="form-control tel" id="phone" name="phone" value="{{old('phone')}}"
                                            placeholder="Телефон" required>
                                 </div>
                                 <div class="col-md-12 form-group p_star">
