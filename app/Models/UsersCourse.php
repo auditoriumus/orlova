@@ -30,8 +30,8 @@ class UsersCourse extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function video()
+    public function course()
     {
-        return $this->belongsTo(Video::class);
+        return $this->belongsTo(Course::class);
     }
 }

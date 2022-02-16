@@ -5,12 +5,29 @@ namespace App\Http\Services\UsersCoursesServices;
 
 use App\Http\Services\CourseServices\GetCourseService;
 use App\Http\Services\UserServices\GetUserService;
+use Carbon\Carbon;
 
 class GetUsersCoursesService extends UsersCoursesService
 {
     public function isAvailable(int $userId, int $courseId)
     {
-        return $this->repository->isAvailable($userId, $courseId) ?? false;
+        $isPayedInfo = $this->repository->isAvailable($userId, $courseId);
+        if (empty($isPayedInfo)) {
+            return false;
+        }
+
+        $append_days = json_decode($isPayedInfo->options, true)['append_days'] ?? 0;
+
+        $paymentDate = $isPayedInfo->created_at;
+        $daysCountAvailable = json_decode($isPayedInfo->course->options, true)['days'];
+
+        if (empty($daysCountAvailable)) return true;
+
+        $dateDifferent = Carbon::now()->diffInDays($paymentDate);
+        if ($daysCountAvailable - $dateDifferent + $append_days > 0) {
+            return true;
+        }
+        return false;
     }
 
     public function getCourseByUserUuid(string $userUuid)

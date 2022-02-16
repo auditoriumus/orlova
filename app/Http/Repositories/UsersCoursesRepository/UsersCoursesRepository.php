@@ -18,6 +18,7 @@ class UsersCoursesRepository extends Repository
         return $this->model
             ->where('user_id', $userId)
             ->where('course_id', $courseId)
+            ->latest()
             ->first();
     }
 

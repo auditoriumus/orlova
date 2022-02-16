@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Controllers\WebsiteControllers\WelcomeController::class)->name('welcome');
+//Route::get('/', function () {
+//    return \App\Models\Course::where('id', '!=', NULL)->update(['options->days' => 30]);
+//});
 
 Route::get('/home', \App\Http\Controllers\WebsiteControllers\HomeController::class)->middleware(['auth'])->name('home');
 
@@ -25,7 +28,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::resource('courses', \App\Http\Controllers\CourseController::class)->names('courses')
-->only(['show']);
+    ->only(['show']);
 
 Route::post('/subscribe', [\App\Http\Controllers\SubscribeController::class, 'subscribe'])->name('subscribe');
 
