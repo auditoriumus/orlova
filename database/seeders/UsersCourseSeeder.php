@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Faker\Provider\Uuid;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class UsersCourseSeeder extends Seeder
 {
@@ -71,48 +73,103 @@ class UsersCourseSeeder extends Seeder
         'um_2005@mail.ru'
     ];
 
+//    public function run()
+//    {
+//        $data = [];
+//
+//        $file = fopen(storage_path('users.csv'), 'r+');
+//        $i = 1;
+//        while (($row = fgetcsv($file, 0, ';')) !== false) {
+//            $data[] = [
+//                'uuid' => Uuid::uuid(),
+//                'user_id' => $i,
+//                'course_id' => 1,
+//                'created_at' => now()
+//            ];
+//            if (in_array($row[2], $this->iAllow)) {
+//                $data[] = [
+//                    'uuid' => Uuid::uuid(),
+//                    'user_id' => $i,
+//                    'course_id' => 2,
+//                    'created_at' => now()
+//                ];
+//            }
+//            if ($row[2] == 'um_2005@mail.ru' || $row[2] == 'S9817179847@gmail.com' || $row[2] == 'Integrapsi10@gmail.com') {
+//                $data[] = [
+//                    'uuid' => Uuid::uuid(),
+//                    'user_id' => $i,
+//                    'course_id' => 3,
+//                    'created_at' => now()
+//                ];
+//            }
+//            if ($row[2] == 'um_2005@mail.ru') {
+//                $data[] = [
+//                    'uuid' => Uuid::uuid(),
+//                    'user_id' => $i,
+//                    'course_id' => 4,
+//                    'created_at' => now()
+//                ];
+//            }
+//
+//
+//            $i++;
+//        }
+//
+//        DB::table('users_courses')->insert($data);
+//    }
+
+    private $usersCourses = [
+        'mashenskova82@gmail.com',
+        'vetoshkinalena@gmail.com',
+        'zaytcevamarina@mail.ru',
+        'vic.plekhanova@gmail.com',
+        'zinaida-vs@mail.ru',
+        'an.iksanova@yandex.ru',
+        'Talia8@yandex.ru',
+        'luda41172@yandex.ru',
+        'oksnik-12@yandex.ru',
+        'botina_sv@mail.ru',
+        'gundyreva.en@inbox.ru',
+        'negorovadid@mail.ru',
+        'Agabitova20@mail.ru',
+        'vasilan85@mail.ru',
+        'otabalykina@inbox.ru',
+        '76ufacha@bk.ru',
+        'tribul@ya.ru',
+        'yulia-krapivina@mail.ru',
+        'Evgeniyaalex@rambler.ru',
+        'Julest@ya.ru',
+    ];
+
+
+    private $da = [
+        'zaytcevamarina@mail.ru',
+        'zinaida-vs@mail.ru',
+        'an.iksanova@yandex.ru',
+        'negorovadid@mail.ru',
+        'vasilan85@mail.ru',
+        'otabalykina@inbox.ru',
+        'tribul@ya.ru'
+    ];
+
     public function run()
     {
-        $data = [];
+        $d = DB::table('users')
+            ->select('id')
+            ->whereIn('email', array_diff($this->usersCourses, $this->da))
+            ->get();
 
-        $file = fopen(storage_path('users.csv'), 'r+');
-        $i = 1;
-        while (($row = fgetcsv($file, 0, ';')) !== false) {
+        $data = [];
+        foreach ($d as $item) {
             $data[] = [
                 'uuid' => Uuid::uuid(),
-                'user_id' => $i,
-                'course_id' => 1,
-                'created_at' => now()
+                'user_id' => $item->id,
+                'course_id' => 2,
+                'created_at' => Carbon::create('2022', 12,13),
+                'options' => json_encode(['append_days' => 69])
             ];
-            if (in_array($row[2], $this->iAllow)) {
-                $data[] = [
-                    'uuid' => Uuid::uuid(),
-                    'user_id' => $i,
-                    'course_id' => 2,
-                    'created_at' => now()
-                ];
-            }
-            if ($row[2] == 'um_2005@mail.ru' || $row[2] == 'S9817179847@gmail.com' || $row[2] == 'Integrapsi10@gmail.com') {
-                $data[] = [
-                    'uuid' => Uuid::uuid(),
-                    'user_id' => $i,
-                    'course_id' => 3,
-                    'created_at' => now()
-                ];
-            }
-            if ($row[2] == 'um_2005@mail.ru') {
-                $data[] = [
-                    'uuid' => Uuid::uuid(),
-                    'user_id' => $i,
-                    'course_id' => 4,
-                    'created_at' => now()
-                ];
-            }
-
-
-            $i++;
         }
-
         DB::table('users_courses')->insert($data);
+
     }
 }
