@@ -165,7 +165,7 @@ class UsersCourseSeeder extends Seeder
                 'uuid' => Uuid::uuid(),
                 'user_id' => $item->id,
                 'course_id' => 2,
-                'created_at' => Carbon::create('2022', 12,13),
+                'created_at' => Carbon::create('2021', 12,13),
                 'options' => json_encode(['append_days' => 69])
             ];
         }

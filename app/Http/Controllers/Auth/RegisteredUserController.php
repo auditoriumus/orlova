@@ -26,7 +26,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required'],
+            'password' => ['required', 'confirmed'],
             'public_offer' => ['accepted'],
             'privacy_policy' => ['accepted']
         ]);

@@ -41,6 +41,10 @@
                                     <input type="password" class="form-control" id="password" name="password" value="{{old('password')}}"
                                            placeholder="Пароль" required>
                                 </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="{{old('password')}}"
+                                           placeholder="Подтвердите пароль" required>
+                                </div>
                                 <div class="col-md-12 form-group p_star creat_account d-flex align-items-center">
                                     <input type="checkbox" id="public_offer" name="public_offer" required>
                                     <label for="public_offer">Подтверждаю согласие с <a href="{{route('public-offer')}}">Договором публичной оферты</a></label>
