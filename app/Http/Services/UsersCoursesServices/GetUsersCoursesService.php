@@ -21,11 +21,11 @@ class GetUsersCoursesService extends UsersCoursesService
         $paymentDate = $isPayedInfo->created_at;
         $daysCountAvailable = json_decode($isPayedInfo->course->options, true)['days'];
 
-        if (empty($daysCountAvailable)) return true;
+        if (empty($daysCountAvailable)) return $isPayedInfo;
 
         $dateDifferent = Carbon::now()->diffInDays($paymentDate);
         if ($daysCountAvailable - $dateDifferent + $append_days > 0) {
-            return true;
+            return $isPayedInfo;
         }
         return false;
     }
