@@ -71,6 +71,26 @@ class UsersCourseSeeder extends Seeder
 
         $data = [];
         foreach ($d as $item) {
+            if ($item->id == 26) {
+                $data[] = [
+                    'uuid' => Uuid::uuid(),
+                    'user_id' => $item->id,
+                    'course_id' => 2,
+                    'created_at' => now(),
+                ];
+                $data[] = [
+                    'uuid' => Uuid::uuid(),
+                    'user_id' => $item->id,
+                    'course_id' => 3,
+                    'created_at' => now(),
+                ];
+                $data[] = [
+                    'uuid' => Uuid::uuid(),
+                    'user_id' => $item->id,
+                    'course_id' => 4,
+                    'created_at' => now(),
+                ];
+            }
             $data[] = [
                 'uuid' => Uuid::uuid(),
                 'user_id' => $item->id,
