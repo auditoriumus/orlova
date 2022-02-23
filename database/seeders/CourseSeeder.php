@@ -19,7 +19,7 @@ class CourseSeeder extends Seeder
                 'type' => 'лекция',
                 'img' => 'assets/img/courses/1-lecture/welcome-picture.png',
                 'detail_img' => 'assets/img/courses/1-lecture/detail-picture.png',
-                'options' => json_encode(['parts' => 1])
+                'options' => json_encode(['parts' => 1, 'days' => 0])
             ],
             [
                 'uuid' => Uuid::uuid(),
@@ -29,7 +29,7 @@ class CourseSeeder extends Seeder
                 'type' => 'онлайн-практика',
                 'img' => 'assets/img/courses/2-ya-razreshayu-sebe-udovolstvie-i-naslazhdenie/welcome-picture.png',
                 'detail_img' => 'assets/img/courses/2-ya-razreshayu-sebe-udovolstvie-i-naslazhdenie/detail-picture.png',
-                'options' => json_encode(['parts' => 1])
+                'options' => json_encode(['parts' => 1, 'days' => 31])
             ],
             [
                 'uuid' => Uuid::uuid(),
@@ -46,7 +46,7 @@ class CourseSeeder extends Seeder
                 'type' => 'онлайн-практика',
                 'img' => 'assets/img/courses/3-praktika-krasivyh-zhenshchin/welcome-picture.png',
                 'detail_img' => 'assets/img/courses/3-praktika-krasivyh-zhenshchin/detail-picture.png',
-                'options' => json_encode(['parts' => 1])
+                'options' => json_encode(['parts' => 1, 'days' => 31])
             ],
             [
                 'uuid' => Uuid::uuid(),
@@ -56,7 +56,7 @@ class CourseSeeder extends Seeder
                 'type' => 'марафон',
                 'img' => 'assets/img/courses/4-marafon-pro-telo/welcome-picture.png',
                 'detail_img' => 'assets/img/courses/4-marafon-pro-telo/detail-picture.png',
-                'options' => json_encode(['parts' => 7])
+                'options' => json_encode(['parts' => 7, 'days' => 31])
             ]
         ];
 
