@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Faker\Provider\Uuid;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class UsersCourseSeeder extends Seeder
 {
@@ -49,7 +49,7 @@ class UsersCourseSeeder extends Seeder
     {
         $d = DB::table('users')
             ->select('id')
-            ->whereIn('email', array_diff($this->usersCourses, $this->da))
+            ->whereIn('email', $this->usersCourses)
             ->get();
 
         $data = [];
@@ -58,7 +58,7 @@ class UsersCourseSeeder extends Seeder
                 'uuid' => Uuid::uuid(),
                 'user_id' => $item->id,
                 'course_id' => 2,
-                'created_at' => Carbon::create('2021', 12,13),
+                'created_at' => Carbon::create('2021', 12, 13),
                 'options' => json_encode(['append_days' => 69])
             ];
         }
@@ -99,5 +99,66 @@ class UsersCourseSeeder extends Seeder
             ];
         }
         DB::table('users_courses')->insert($data);
+
+
+        $data = [
+            [
+                'uuid' => Uuid::uuid(),
+                'user_id' => User::where('email', 'zemlyahaos@mail.ru')->first()->id,
+                'course_id' => 3,
+                'created_at' => Carbon::create('2022', '02', '22', '15','11')
+            ],
+            [
+                'uuid' => Uuid::uuid(),
+                'user_id' => User::where('email', 'sv.17@mail.ru')->first()->id,
+                'course_id' => 4,
+                'created_at' => Carbon::create('2022', '02', '09', '06','24')
+            ],
+            [
+                'uuid' => Uuid::uuid(),
+                'user_id' => User::where('email', 'vasilan85@mail.ru')->first()->id,
+                'course_id' => 3,
+                'created_at' => Carbon::create('2022', '02', '08', '21','13')
+            ],
+            [
+                'uuid' => Uuid::uuid(),
+                'user_id' => User::where('email', 'zubikm@rambler.ru')->first()->id,
+                'course_id' => 1,
+                'created_at' => Carbon::create('2022', '02', '08', '19','58')
+            ],
+            [
+                'uuid' => Uuid::uuid(),
+                'user_id' => User::where('email', 'ageevarimma@mail.ru')->first()->id,
+                'course_id' => 3,
+                'created_at' => Carbon::create('2022', '02', '03', '22','28')
+            ],
+            [
+                'uuid' => Uuid::uuid(),
+                'user_id' => User::where('email', 'sandrixpost@mail.ru')->first()->id,
+                'course_id' => 3,
+                'created_at' => Carbon::create('2022', '02', '01', '11','29')
+            ],
+            [
+                'uuid' => Uuid::uuid(),
+                'user_id' => User::where('email', 'marinakotova80@mail.ru')->first()->id,
+                'course_id' => 3,
+                'created_at' => Carbon::create('2022', '02', '01', '09','25')
+            ],
+            [
+                'uuid' => Uuid::uuid(),
+                'user_id' => User::where('email', 'an-sh@mail.ru')->first()->id,
+                'course_id' => 4,
+                'created_at' => Carbon::create('2022', '01', '30', '20','00')
+            ],
+            [
+                'uuid' => Uuid::uuid(),
+                'user_id' => User::where('email', 's9817179847@gmail.com')->first()->id,
+                'course_id' => 4,
+                'created_at' => Carbon::create('2022', '01', '28', '20','25')
+            ],
+        ];
+
+        DB::table('users_courses')->insert($data);
+
     }
 }
