@@ -37,3 +37,5 @@ Route::group(['prefix' => 'pay'], function () {
     Route::get('/success', \App\Http\Controllers\OrderControllers\SuccessPayController::class);
     Route::get('/fail', \App\Http\Controllers\OrderControllers\FailPayController::class);
 });
+
+Route::resource('credentials', \App\Http\Controllers\WebsiteControllers\Credentials::class);
