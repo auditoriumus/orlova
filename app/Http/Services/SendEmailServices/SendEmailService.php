@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException as BadResponseExceptionAlias;
 use Illuminate\Support\Facades\Log;
 
-class SendEmailService extends EmailService
+class SendEmailService
 {
     public function sendResetPasswordLink($user, $token)
     {

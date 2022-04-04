@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use App\Events\NewFeedback;
+use App\Events\SendEmailByPayment;
+use App\Events\SendEmailByPaymentEvent;
+use App\Listeners\SendEmailByPaymentListener;
 use App\Listeners\SendMessageToTgBot;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -22,6 +25,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         NewFeedback::class => [
             SendMessageToTgBot::class
+        ],
+        SendEmailByPaymentEvent::class => [
+            SendEmailByPaymentListener::class
         ]
     ];
 

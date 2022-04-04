@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\OrderControllers;
 
+use App\Events\SendEmailByPaymentEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Services\OrderServices\ApproveOrderService;
 use App\Http\Services\UsersCoursesServices\CreateUsersCoursesService;
@@ -25,6 +26,7 @@ class SuccessPayController extends Controller
         ]);
         $user = User::find($isPayedInfo['user_id']);
         Auth::login($user);
+        event(new SendEmailByPaymentEvent($user));
         return view('home');
     }
 }

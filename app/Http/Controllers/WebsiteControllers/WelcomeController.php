@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\WebsiteControllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CourseResource;
 use App\Http\Services\CommentServices\GetCommentService;
 use App\Http\Services\CourseServices\GetCourseService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\View;
 
 class WelcomeController extends Controller
