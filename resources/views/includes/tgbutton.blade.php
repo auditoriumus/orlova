@@ -7,7 +7,7 @@
     }
 </style>
 <div class="telegram">
-    <a href="https://telegram.me/shutova_iii/">
+    <a href="https://t.me/Kseniyazabota">
         <img src="{{asset('assets/tg.png')}}" height="50px" alt="">
     </a>
 </div>
