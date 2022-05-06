@@ -122,7 +122,7 @@ return [
     'starts_with' => 'Атрибут :attribute должен начинаться с одного из следующих значений: :values.',
     'string' => 'Атрибут :attribute должен быть строкой.',
     'timezone' => 'Атрибут :attribute должен быть верной временной зоной.',
-    'unique' => ':attribute уже принят.',
+    'unique' => ':attribute уже существует.',
     'uploaded' => ':attribute не загружен.',
     'url' => 'Атрибут :attribute должен быть верным URL-адресом.',
     'uuid' => 'Атрибут :attribute должен быть верным UUID.',
