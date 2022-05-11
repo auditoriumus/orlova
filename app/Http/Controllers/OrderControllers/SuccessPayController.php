@@ -26,13 +26,14 @@ class SuccessPayController extends Controller
         ]);
         $user = User::find($isPayedInfo['user_id']);
         Auth::login($user);
+        $info = [];
+        $info['user'] = $user;
         if ($isPayedInfo['course_id'] == 6) {
-            $info = [];
             $info['courseId'] = 6;
-            $info['user'] = $user;
             event(new SendEmailByPaymentEvent($info));
         } elseif ($isPayedInfo['course_id'] == 7) {
-
+            $info['courseId'] = 7;
+            event(new SendEmailByPaymentEvent($info));
         }
         return view('home');
     }

@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 use App\Events\SendEmailByPaymentEvent;
 use App\Http\Services\SendEmailServices\SendNewPaymentEmailServices;
+use Illuminate\Support\Facades\Log;
 
 class SendEmailByPaymentListener
 {

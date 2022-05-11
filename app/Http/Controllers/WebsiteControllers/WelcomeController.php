@@ -5,6 +5,7 @@ namespace App\Http\Controllers\WebsiteControllers;
 use App\Http\Controllers\Controller;
 use App\Http\Services\CommentServices\GetCommentService;
 use App\Http\Services\CourseServices\GetCourseService;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\View;
 
 class WelcomeController extends Controller

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\WebsiteControllers;
 use App\Http\Controllers\Controller;
 use App\Http\Services\UsersCoursesServices\GetUsersCoursesService;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
