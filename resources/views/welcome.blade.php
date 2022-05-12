@@ -9,7 +9,7 @@
                     <div class="banner_text">
                         <div class="banner_text_iner">
                             <h1>Юлия Орлова</h1>
-                            <p>Психолог и не только. Я человек, который точно знает...</p>
+                            <p>Психология нежных отношений с собой и зрелых с жизнью</p>
                             @if(!Auth::check())
                                 <a href="{{route('login')}}" class="btn_1">Получить лекцию в подарок</a>
                             @endif
