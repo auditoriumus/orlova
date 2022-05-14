@@ -11,6 +11,7 @@ class ApproveOrderService extends OrderService
             $result = [];
             $result['user_id'] = $orderInfo->user_id;
             $result['course_id'] = $orderInfo->course_id;
+            $result['promo_code'] = $orderInfo->promo_code;
             return $result;
         }
         return false;

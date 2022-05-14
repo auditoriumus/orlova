@@ -51,7 +51,7 @@ class OrderController extends Controller
         $createOrderData['user_id'] = $userId;
         $createOrderData['course_uuid'] = $request->input('course_id');
         $createOrderData['invoice_id'] = $urlInfo['invoice_id'];
-        $createOrderData['price'] = $request->input('price') - $discount;
+        $createOrderData['price'] = $request->input('price');
         $createOrderData['promo_code'] = $promoCode->title ?? null;
         app(CreateOrderService::class)->createNewOrder($createOrderData);
 
