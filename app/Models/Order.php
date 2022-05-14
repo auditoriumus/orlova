@@ -47,6 +47,7 @@ class Order extends Model
         'user_id',
         'course_id',
         'price',
-        'is_payed'
+        'is_payed',
+        'promo_code'
     ];
 }

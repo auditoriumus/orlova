@@ -113,6 +113,9 @@
                                         <input type="text" name="name" placeholder="Имя" required class="single-input"
                                                @if(Auth::check()) value="{{\Illuminate\Support\Facades\Auth::user()->name}}" @endif >
                                     </div>
+                                    <div class="mt-10">
+                                        <input type="text" name="promo_code" placeholder="Промо-код" class="single-input">
+                                    </div>
                                     <div class="mt-10 left">
                                         <input type="checkbox" id="public_offer" name="public_offer" required>
                                         <label for="public_offer">Подтверждаю согласие с <a

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\OrderControllers;
 use App\Events\SendEmailByPaymentEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Services\OrderServices\ApproveOrderService;
+use App\Http\Services\PromoCodeServices\ChangePromoCodeService;
+use App\Http\Services\PromoCodeServices\GetPromoCodeService;
 use App\Http\Services\UsersCoursesServices\CreateUsersCoursesService;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,6 +23,14 @@ class SuccessPayController extends Controller
         if ($isPayedInfo) {
             app(CreateUsersCoursesService::class)->addNew($isPayedInfo['user_id'], $isPayedInfo['course_id']);
         }
+
+        if (!empty($isPayedInfo['promo_code'])) {
+            $promoCode = app(GetPromoCodeService::class)->findByTitle($isPayedInfo['promo_code']);
+            if (!empty($promoCode) && !$promoCode->is_multiple) {
+                app(ChangePromoCodeService::class)->deactivateByTitle($isPayedInfo['promo_code']);
+            }
+        }
+
         View::share([
             'message' => 'Поздравляю! Вам доступен просмотр практики!'
         ]);
