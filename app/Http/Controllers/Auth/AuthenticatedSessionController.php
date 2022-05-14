@@ -28,6 +28,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        $request->merge(['email' => strtolower($request->input('email'))]);
         $request->authenticate();
 
         $request->session()->regenerate();
