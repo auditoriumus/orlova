@@ -13,7 +13,7 @@ class FeedbackController extends Controller
     public function createFeedback(FeedbackRequest $request)
     {
         if ($feedback = app(CreateFeedbackService::class)->create($request)) {
-            event(new NewFeedback($feedback));
+            //event(new NewFeedback($feedback));
             View::share([
                 'message' => 'Сообщение отправлено'
             ]);

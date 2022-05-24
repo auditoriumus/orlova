@@ -27,7 +27,7 @@
                 <div class="col-lg-8">
                     <div class="single_product_text text-center">
                         <h3>{{$course->title}}</h3>
-                        <p>{{$course->description}}</p>
+                        <p class="text-left">{!! $course->description!!}</p>
                         @if(\Illuminate\Support\Facades\Auth::check() && isset($available) && $available == true)
                             @if($options['parts'] == 1)
                                 @if(isset($videos))
