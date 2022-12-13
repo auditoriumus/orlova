@@ -59,6 +59,9 @@ class SuccessPayController extends Controller
         } elseif ($isPayedInfo['course_id'] == 12) {
             $info['courseId'] = 12;
             event(new SendEmailByPaymentEvent($info));
+        } elseif ($isPayedInfo['course_id'] == 13) {
+            $info['courseId'] = 13;
+            event(new SendEmailByPaymentEvent($info));
         }
         return view('home');
     }
