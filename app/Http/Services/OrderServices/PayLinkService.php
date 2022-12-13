@@ -14,7 +14,7 @@ class PayLinkService
 
         $shopId = env('SHOP_ID');
         $pwd1 = env('SHOP_PWD_1');
-        //$pwd1 = env('SHOP_TEST_PWD_1');
+        $pwd1 = env('SHOP_TEST_PWD_1');
 
         // номер заказа
         $invoiceId = random_int(12345, 54321);
@@ -35,7 +35,7 @@ class PayLinkService
         //подпись
         $crc = md5("$shopId:$amount:$invoiceId:$pwd1");
 
-        $isTest = 0;
+        $isTest = 1;
 
 
         $result['invoice_id'] = $invoiceId;
