@@ -38,7 +38,7 @@ class SendEmailByPaymentListener
         } elseif ($event->courseId == 13) {
             $this->subject = 'Новогодняя мистерия онлайн.';
             $this->html = "Добро пожаловать к нашему предновогоднему костру!<br>Я бесконечно рада вам и очень жду в нашем чате, где я буду выкладывать всю подготовку к нашей мистерии.<br>Там же будет ссылка на зум: <a href=\"https://t.me/+m7jom1c6-9M0Nzky\">https://t.me/+m7jom1c6-9M0Nzky</a>";
-        } elseif ($event->courseId == 13) {
+        } elseif ($event->courseId == 14) {
             $this->subject = 'Бывшие.';
             $this->html = "Здравствуйте! Рада Вас приветствовать на нашей первой встрече из цикла «Про любовь».<br>Вступайте в наш чат чтобы не потеряться. Там будут все ссылки♥️<br>Люблю вас и жду там.<br><a href=\"https://t.me/+cwvtoE0m9dAwNTE6\">https://t.me/+cwvtoE0m9dAwNTE6</a>";
         }
