@@ -41,6 +41,9 @@ class SendEmailByPaymentListener
         } elseif ($event->courseId == 14) {
             $this->subject = 'Бывшие.';
             $this->html = "Здравствуйте! Рада Вас приветствовать на нашей первой встрече из цикла «Про любовь».<br>Вступайте в наш чат чтобы не потеряться. Там будут все ссылки♥️<br>Люблю вас и жду там.<br><a href=\"https://t.me/+cwvtoE0m9dAwNTE6\">https://t.me/+cwvtoE0m9dAwNTE6</a>";
+        } elseif ($event->courseId == 15) {
+            $this->subject = 'Бывшие.';
+            $this->html = "Здравствуйте! Рада Вас приветствовать на нашей первой встрече про взросление для взрослых женщин♥️<br>Вступайте в наш чат чтобы не потеряться. Там будут все ссылки♥️<br>Люблю вас и жду там.<br><a href=\"https://t.me/+IXotdc19IGRiOGRi\">https://t.me/+IXotdc19IGRiOGRi</a>";
         }
         app(SendNewPaymentEmailServices::class)->sendEmail($event->user, $this->subject, $this->html);
     }
