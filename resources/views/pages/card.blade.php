@@ -126,9 +126,9 @@
                                         <label for="privacy_policy">Подтверждаю согласие на обработку <a
                                                 href="{{route('privacy')}}">персональных данных</a></label>
                                     </div>
-                                    <div class="mt-10">
-                                        <button type="submit" class="btn_3">купить</button>
-                                    </div>
+{{--                                    <div class="mt-10">--}}
+{{--                                        <button type="submit" class="btn_3">купить</button>--}}
+{{--                                    </div>--}}
                                 </div>
                             </form>
                         @endif
