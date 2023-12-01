@@ -63,45 +63,56 @@
     <!-- product list end-->
 
     <!-- feature part here -->
+    {{--    <section class="feature_part section_padding">--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="row justify-content-between">--}}
+    {{--                <div class="col-lg-6">--}}
+    {{--                    <div class="feature_part_tittle">--}}
+    {{--                        <h3>Порядок оказания услуг.</h3>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="col-lg-5">--}}
+    {{--                    <div class="feature_part_content">--}}
+    {{--                        <p>Чтобы вам было максимально удобно, я стараюсь оказывать полную поддержку своих--}}
+    {{--                            клиентов на всех этапах.</p>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--            <div class="row justify-content-center">--}}
+    {{--                <div class="col-lg-3 col-sm-6">--}}
+    {{--                    <div class="single_feature_part">--}}
+    {{--                        <img src="{{asset('assets/img/icon/feature_icon_2.svg')}}" alt="#">--}}
+    {{--                        <h4>Онлайн консультация со мной</h4>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="col-lg-3 col-sm-6">--}}
+    {{--                    <div class="single_feature_part">--}}
+    {{--                        <img src="{{asset('assets/img/icon/feature_icon_3.svg')}}" alt="#">--}}
+    {{--                        <h4>Выбор подходящей программы</h4>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="col-lg-3 col-sm-6">--}}
+    {{--                    <div class="single_feature_part">--}}
+    {{--                        <img src="{{asset('assets/img/icon/feature_icon_1.svg')}}" alt="#">--}}
+    {{--                        <h4>Возможность оплаты картой</h4>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="col-lg-3 col-sm-6">--}}
+    {{--                    <div class="single_feature_part">--}}
+    {{--                        <img src="{{asset('assets/img/icon/feature_icon_4.svg')}}" alt="#">--}}
+    {{--                        <h4>Бонусы и подарки клиентам</h4>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </section>--}}
+
     <section class="feature_part section_padding">
         <div class="container">
             <div class="row justify-content-between">
-                <div class="col-lg-6">
-                    <div class="feature_part_tittle">
-                        <h3>Порядок оказания услуг.</h3>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="feature_part_content">
-                        <p>Чтобы вам было максимально удобно, я стараюсь оказывать полную поддержку своих
-                            клиентов на всех этапах.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_feature_part">
-                        <img src="{{asset('assets/img/icon/feature_icon_2.svg')}}" alt="#">
-                        <h4>Онлайн консультация со мной</h4>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_feature_part">
-                        <img src="{{asset('assets/img/icon/feature_icon_3.svg')}}" alt="#">
-                        <h4>Выбор подходящей программы</h4>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_feature_part">
-                        <img src="{{asset('assets/img/icon/feature_icon_1.svg')}}" alt="#">
-                        <h4>Возможность оплаты картой</h4>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single_feature_part">
-                        <img src="{{asset('assets/img/icon/feature_icon_4.svg')}}" alt="#">
-                        <h4>Бонусы и подарки клиентам</h4>
-                    </div>
+                <div class="col-12">
+                    <h3>По вопросам приобретения продуктов и участия в мероприятиях обращаться в Телеграм: <a
+                            href="https://t.me/Kseniyazabota">@Kseniyazabota</a></h3>
                 </div>
             </div>
         </div>
